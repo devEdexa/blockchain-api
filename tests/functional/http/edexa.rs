@@ -11,7 +11,7 @@ async fn edexa_provider(ctx: &mut ServerContext) {
     check_if_rpc_is_responding_correctly_for_supported_chain(
         ctx,
         &ProviderKind::Edexa,
-        "eip155:5425",
+        "eip155:5424",
         "0x1530",
     )
     .await;
