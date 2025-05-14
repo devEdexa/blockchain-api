@@ -21,20 +21,21 @@ use {
     },
     env::{
         AllnodesConfig, ArbitrumConfig, AuroraConfig, BaseConfig, BinanceConfig, DrpcConfig,
-        DuneConfig, GetBlockConfig, InfuraConfig, MantleConfig, MonadConfig, MorphConfig,
-        NearConfig, OdysseyConfig, PoktConfig, PublicnodeConfig, QuicknodeConfig, SolScanConfig,
-        SyndicaConfig, UnichainConfig, WemixConfig, ZKSyncConfig, ZerionConfig, ZoraConfig,
+        DuneConfig, EdexaConfig, GetBlockConfig, InfuraConfig, MantleConfig, MonadConfig,
+        MorphConfig, NearConfig, OdysseyConfig, PoktConfig, PublicnodeConfig, QuicknodeConfig,
+        SolScanConfig, SyndicaConfig, UnichainConfig, WemixConfig, ZKSyncConfig, ZerionConfig,
+        ZoraConfig,
     },
     error::RpcResult,
     http::Request,
     hyper::{header::HeaderName, http, server::conn::AddrIncoming, Body, Server},
     providers::{
         AllnodesProvider, ArbitrumProvider, AuroraProvider, BaseProvider, BinanceProvider,
-        DrpcProvider, DuneProvider, GetBlockProvider, InfuraProvider, InfuraWsProvider,
-        MantleProvider, MonadProvider, MorphProvider, NearProvider, OdysseyProvider, PoktProvider,
-        ProviderRepository, PublicnodeProvider, QuicknodeProvider, SolScanProvider,
-        SyndicaProvider, UnichainProvider, WemixProvider, ZKSyncProvider, ZerionProvider,
-        ZoraProvider, ZoraWsProvider,
+        DrpcProvider, DuneProvider, EdexaProvider, GetBlockProvider, InfuraProvider,
+        InfuraWsProvider, MantleProvider, MonadProvider, MorphProvider, NearProvider,
+        OdysseyProvider, PoktProvider, ProviderRepository, PublicnodeProvider, QuicknodeProvider,
+        SolScanProvider, SyndicaProvider, UnichainProvider, WemixProvider, ZKSyncProvider,
+        ZerionProvider, ZoraProvider, ZoraWsProvider,
     },
     sqlx::postgres::PgPoolOptions,
     std::{
@@ -534,6 +535,7 @@ fn init_providers(config: &ProvidersConfig) -> ProviderRepository {
     providers.add_rpc_provider::<WemixProvider, WemixConfig>(WemixConfig::default());
     providers.add_rpc_provider::<DrpcProvider, DrpcConfig>(DrpcConfig::default());
     providers.add_rpc_provider::<OdysseyProvider, OdysseyConfig>(OdysseyConfig::default());
+    providers.add_rpc_provider::<EdexaProvider, EdexaConfig>(EdexaConfig::default());
     providers.add_rpc_provider::<AllnodesProvider, AllnodesConfig>(AllnodesConfig::new(
         config.allnodes_api_key.clone(),
     ));
