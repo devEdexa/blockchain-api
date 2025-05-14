@@ -19,7 +19,7 @@ pub use {
     allnodes::*, arbitrum::*, aurora::*, base::*, binance::*, drpc::*, dune::*, edexa::*, getblock::*,
     infura::*, mantle::*, monad::*, morph::*, near::*, odyssey::*, pokt::*, publicnode::*,
     quicknode::*, server::*, solscan::*, syndica::*, unichain::*, wemix::*, zerion::*, zksync::*,
-    zora::*, 
+    zora::*,
 };
 mod allnodes;
 mod arbitrum;
